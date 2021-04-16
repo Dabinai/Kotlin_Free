@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_bottom_home"
+        android:icon="@mipmap/ic_home"
+        android:title="首页"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_bottom_discover"
+        android:icon="@mipmap/ic_discover"
+        android:title="发现"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_bottom_mine"
+        android:icon="@mipmap/ic_mine"
+        android:title="我的"
+        app:showAsAction="ifRoom" />
+
+</menu>

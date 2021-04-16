@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="popupTextAlignment" format="enum">
+        <enum name="start" value="0" />
+        <enum name="end" value="1" />
+        <enum name="center" value="2" />
+    </attr>
+
+    <declare-styleable name="NiceSpinner">
+        <attr name="arrowTint" format="color" />
+        <attr name="hideArrow" format="boolean" />
+        <attr name="arrowDrawable" format="reference|color" />
+        <attr name="dropDownListPaddingBottom" format="dimension" />
+        <attr name="backgroundSelector" format="integer" />
+        <attr name="textTint" format="color" />
+        <attr name="popupTextAlignment" />
+        <attr name="entries" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="JXToolBar" >
+        <attr name="jx_toolbar_title" format="string"/>
+        <attr name="jx_toolbar_right_text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView" >
+        <attr name="round_img_radius" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="VerificationCodeEditText">
+        <attr name="codeTextColor" format="color"/>
+        <attr name="codeTextSize" format="dimension"/>
+        <attr name="codeTextBackgroud" format="reference" />
+        <attr name="codeCursorImg" format="reference"/>
+        <attr name="codeCursorHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ContentWithSpaceEditText">
+        <attr name="input_type" format="enum">
+            <enum name="phone" value="0"/>
+            <enum name="bank_card_no" value="1"/>
+            <enum name="identify_card_no" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

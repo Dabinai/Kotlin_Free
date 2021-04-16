@@ -1,0 +1,5 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_send_code_normal_4" android:state_enabled="true" />
+    <item android:drawable="@drawable/bg_send_code_press_4" android:state_enabled="false" />
+    <item android:drawable="@drawable/bg_send_code_normal_4" />
+</selector>

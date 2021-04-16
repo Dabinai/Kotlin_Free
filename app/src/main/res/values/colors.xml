@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+
+    <color name="app_color_grey">#393a3e</color>
+    <color name="app_color_black">#000000</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="app_color_fa">#fafafa</color>
+    <color name="app_color_divider">#B6B6B6</color>
+    <color name="app_color_c51">#f94c51</color>
+    <color name="app_color_green">#43c117</color>
+    <color name="app_color_53575e">#53575e</color>
+    <color name="app_color_transparent">#00000000</color>
+    <color name="app_color_transparent_50">#50000000</color>
+    <color name="app_color_white">#FFFFFF</color>
+    <color name="app_color_white_transparent">#E0DBDBDB</color>
+    <color name="app_color_blue">#7D7DFF</color>
+    <color name="app_color_9b">#9b9b9b</color>
+    <color name="app_color_e0ff6100">#E0FF6100</color>
+    <color name="app_color_red">#FF0000</color>
+
+    <color name="app_color_999">#999999</color>
+    <color name="app_color_020">#E02020</color>
+    <color name="app_color_EE4">#315EE4</color>
+    <color name="app_color_8CD">#33A3A8CD</color>
+    <color name="app_color_333">#333333</color>
+    <color name="app_color_645">#FB4645</color>
+    <color name="app_color_231">#E45231</color>
+    <color name="app_color_F35">#E94F35</color>
+    <color name="app_color_080">#ED9080</color>
+    <color name="app_color_666">#666666</color>
+    <color name="app_color_000">#000000</color>
+    <color name="app_color_500">#F7B500</color>
+    <color name="app_color_1B1">#B1B1B1</color>
+    <color name="app_color_034">#E85034</color>
+    <color name="app_color_a3f">#F54A3F</color>
+    <color name="app_color_049">#75C049</color>
+    <color name="app_color_8cd">#33a3a8cd</color>
+    <color name="app_color_E7">#E7E7E7</color>
+    <color name="app_color_D8">#D8D8D8</color>
+    <color name="app_color_74">#53DF74</color>
+    <color name="app_color_67">#4BC467</color>
+    <color name="app_color_f3">#F3F3F3</color>
+    <color name="app_color_5f">#5F5F5F</color>
+
+    <color name="app_color_FE">#3476FE</color>
+    <color name="app_color_E5">#4377E5</color>
+
+    <color name="app_color_65">#F68765</color>
+    <color name="app_color_35">#E94F35</color>
+
+    <color name="black_trans">#41000000</color>
+    <color name="transparent_background">#50000000</color>
+    <color name="blue_word">#2D5FEE</color>
+    <color name="dialog_half_trans">#b0000000</color>
+    <color name="line">#A3A8CD</color>
+    <color name="app_color_e6e">#e6e6e6</color>
+    <color name="app_color_514">#514e4e</color>
+
+    <color name="app_color_A3F">#393A3F</color>
+    <color name="app_color_135">#303135</color>
+</resources>
