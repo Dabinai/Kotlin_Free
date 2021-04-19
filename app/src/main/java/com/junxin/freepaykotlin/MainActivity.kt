@@ -44,7 +44,6 @@ class MainActivity : BaseActivity() {
     }
 
     fun initData() {
-        mFragments.removeAt(0)
         mFragments.add(HomeFragment())
         view_pager.isUserInputEnabled = false
         view_pager.adapter = ViewPagerAdapter(this, mFragments)

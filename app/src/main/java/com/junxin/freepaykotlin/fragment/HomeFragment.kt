@@ -1,7 +1,7 @@
 package com.junxin.freepaykotlin.fragment
 
+import android.net.Network
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.gson.Gson
@@ -11,10 +11,10 @@ import com.junxin.freepaykotlin.api.NetWork
 import com.junxin.freepaykotlin.api.callback.ApiErr
 import com.junxin.freepaykotlin.api.callback.ApiSuccess
 import com.junxin.freepaykotlin.bean.BannerBean
+import com.junxin.freepaykotlin.bean.MineTaskBean
 import com.junxin.freepaykotlin.bean.TaskCommonBean
 import com.junxin.freepaykotlin.utils.ToastUtil
 import com.youth.banner.indicator.RectangleIndicator
-import com.youth.banner.listener.OnBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -23,7 +23,7 @@ import kotlin.math.abs
 class HomeFragment : BaseFragment() {
 
     var listData = mutableListOf<TaskCommonBean>()
-
+    var usUserTak = false
     override fun getLayout(): Int = R.layout.fragment_home
 
     override fun init() {
@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    private fun initRefresh(){
+    private fun initRefresh() {
         home_smart.setEnableAutoLoadMore(false)
         home_smart.setEnableLoadMore(false)
         home_smart.setOnRefreshListener {
@@ -46,26 +46,26 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    lateinit var state : CollapsingToolbarLayoutState
+    lateinit var state: CollapsingToolbarLayoutState
 
     enum class CollapsingToolbarLayoutState {
         EXPANDED, COLLAPSED, INTERNEDIATE
     }
 
-    private fun initBar(){
-        app_bar.addOnOffsetChangedListener(object :AppBarLayout.OnOffsetChangedListener{
+    private fun initBar() {
+        app_bar.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
             override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-                if(verticalOffset == 0) {
-                    if(state != CollapsingToolbarLayoutState.EXPANDED){
+                if (verticalOffset == 0) {
+                    if (state != CollapsingToolbarLayoutState.EXPANDED) {
                         state = CollapsingToolbarLayoutState.EXPANDED //修改状态标记为展开
-                    }else if(abs(verticalOffset) >= appBarLayout!!.totalScrollRange){
-                        if(state != CollapsingToolbarLayoutState.COLLAPSED){
+                    } else if (abs(verticalOffset) >= appBarLayout!!.totalScrollRange) {
+                        if (state != CollapsingToolbarLayoutState.COLLAPSED) {
                             tv2.visibility = View.VISIBLE
                             state = CollapsingToolbarLayoutState.COLLAPSED
                         }
-                    }else{
-                        if(state != CollapsingToolbarLayoutState.INTERNEDIATE){
-                            if(state == CollapsingToolbarLayoutState.COLLAPSED){
+                    } else {
+                        if (state != CollapsingToolbarLayoutState.INTERNEDIATE) {
+                            if (state == CollapsingToolbarLayoutState.COLLAPSED) {
                                 tv2.visibility = View.GONE
                             }
                             state = CollapsingToolbarLayoutState.INTERNEDIATE
@@ -77,11 +77,11 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    private fun initBanner(){
-        NetWork.getInstance()?.getBanner(object : ApiSuccess{
+    private fun initBanner() {
+        NetWork.getInstance()?.getBanner(object : ApiSuccess {
             override fun onResponse(call: Call<ResponseBody>?, json: String?) {
-                var bannerBean = Gson().fromJson(json,BannerBean::class.java)
-                if(bannerBean.code != 0){
+                var bannerBean = Gson().fromJson(json, BannerBean::class.java)
+                if (bannerBean.code != 0) {
                     ToastUtil.showShortToastCenter(bannerBean.msg)
                     return
                 }
@@ -95,11 +95,12 @@ class HomeFragment : BaseFragment() {
                     .setIndicatorRadius(5)
 
                 home_banner.setOnBannerListener({ data, position ->
+                    ToastUtil.showShortToastCenter("${position}")
                 })
 
             }
 
-        },object : ApiErr{
+        }, object : ApiErr {
             override fun onFailure(call: Call<ResponseBody>?, t: Throwable) {
                 ToastUtil.showShortToastCenter(t.toString())
             }
@@ -107,9 +108,85 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    fun initUserTask(){
+    fun initUserTask() {
         listData.clear()
+        usUserTak = false
+        NetWork.getInstance()?.getUserList(object : ApiSuccess {
+            override fun onResponse(call: Call<ResponseBody>?, json: String?) {
+                var mineTaskBean = Gson().fromJson(json, MineTaskBean::class.java)
+                if (mineTaskBean.code == 0) {
+                    var data = mineTaskBean.data?.data
+                    if (data?.size == 1) {
+                        var taskCommonBean = data.get(0)
+                        taskCommonBean.type = 2
+                        var userTaskList = mutableListOf<TaskCommonBean>()
 
+                        var taskCommonBean1 = TaskCommonBean()
+                        taskCommonBean1.title = taskCommonBean.title
+                        taskCommonBean1.subTitle = taskCommonBean.subTitle
+                        taskCommonBean1.cover = taskCommonBean.cover
+                        taskCommonBean1.price = taskCommonBean.price
+                        taskCommonBean1.mpAppId = taskCommonBean.mpAppId
+
+                        userTaskList.add(taskCommonBean1)
+
+                        taskCommonBean.userTaskBeanList = userTaskList
+                    }else if(data?.size!! > 1){
+                        var userTaskList = mutableListOf<TaskCommonBean>()
+
+                        var taskCommonBeanOne = data.get(0)
+                        taskCommonBeanOne.type = 2
+                        var taskCommonBean1 = TaskCommonBean()
+                        taskCommonBean1.title = taskCommonBeanOne.title
+                        taskCommonBean1.subTitle = taskCommonBeanOne.subTitle
+                        taskCommonBean1.cover = taskCommonBeanOne.cover
+                        taskCommonBean1.price = taskCommonBeanOne.price
+                        taskCommonBean1.mpAppId = taskCommonBeanOne.mpAppId
+                        userTaskList.add(taskCommonBean1)
+
+                        var taskCommonBeanTwo = data.get(1)
+                        taskCommonBeanTwo.type = 2
+                        var taskCommonBean2 = TaskCommonBean()
+                        taskCommonBean2.title = taskCommonBeanTwo.title
+                        taskCommonBean2.subTitle = taskCommonBeanTwo.subTitle
+                        taskCommonBean2.cover = taskCommonBeanTwo.cover
+                        taskCommonBean2.price = taskCommonBeanTwo.price
+                        taskCommonBean2.mpAppId = taskCommonBeanTwo.mpAppId
+                        userTaskList.add(taskCommonBean2)
+
+                        taskCommonBeanOne.userTaskBeanList = userTaskList
+                        listData.add(taskCommonBeanOne)
+
+
+                    }else{
+                        ToastUtil.showShortToastCenter(mineTaskBean.msg)
+                    }
+                    initHomeRv()
+                }
+            }
+
+        }, object : ApiErr {
+            override fun onFailure(call: Call<ResponseBody>?, t: Throwable) {
+                initHomeRv()
+                ToastUtil.showShortToast(t.toString())
+            }
+
+        })
+
+    }
+
+    fun initHomeRv(){
+        NetWork.getInstance()?.getHomeList("${1}",object : ApiSuccess{
+            override fun onResponse(call: Call<ResponseBody>?, json: String?) {
+                TODO("Not yet implemented")
+            }
+
+        },object : ApiErr{
+            override fun onFailure(call: Call<ResponseBody>?, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
 }
