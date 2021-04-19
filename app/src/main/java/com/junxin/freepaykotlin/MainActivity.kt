@@ -12,6 +12,7 @@ import org.greenrobot.eventbus.ThreadMode
 
 class MainActivity : BaseActivity() {
 
+    var mFragments = mutableListOf<Fragment>()
     override fun getLayout(): Int = R.layout.activity_main
 
     override fun onInit() {
@@ -43,7 +44,6 @@ class MainActivity : BaseActivity() {
     }
 
     fun initData() {
-        var mFragments = mutableListOf(Fragment())
         mFragments.removeAt(0)
         mFragments.add(HomeFragment())
         view_pager.isUserInputEnabled = false

@@ -11,14 +11,19 @@ import com.junxin.freepaykotlin.api.NetWork
 import com.junxin.freepaykotlin.api.callback.ApiErr
 import com.junxin.freepaykotlin.api.callback.ApiSuccess
 import com.junxin.freepaykotlin.bean.BannerBean
+import com.junxin.freepaykotlin.bean.TaskCommonBean
 import com.junxin.freepaykotlin.utils.ToastUtil
 import com.youth.banner.indicator.RectangleIndicator
+import com.youth.banner.listener.OnBannerListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.ResponseBody
 import retrofit2.Call
 import kotlin.math.abs
 
 class HomeFragment : BaseFragment() {
+
+    var listData = mutableListOf<TaskCommonBean>()
+
     override fun getLayout(): Int = R.layout.fragment_home
 
     override fun init() {
@@ -89,14 +94,22 @@ class HomeFragment : BaseFragment() {
                     .setIndicatorSpace(5)
                     .setIndicatorRadius(5)
 
+                home_banner.setOnBannerListener({ data, position ->
+                })
+
             }
 
         },object : ApiErr{
             override fun onFailure(call: Call<ResponseBody>?, t: Throwable) {
-                TODO("Not yet implemented")
+                ToastUtil.showShortToastCenter(t.toString())
             }
 
         })
+    }
+
+    fun initUserTask(){
+        listData.clear()
+
     }
 
 }
