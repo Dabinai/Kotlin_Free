@@ -25,7 +25,7 @@ class MineTaskBean : Serializable {
         var total = 0
         var currentPage = 0
         var lastPage = 0
-        var data: List<TaskCommonBean>? = null
+        var data: MutableList<TaskCommonBean>? = null
 
     } //    /**
     //     * code : 0

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@android:color/transparent">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/bg_mine" />
+
+
+                <ImageView
+                    android:id="@+id/ic_mine_setting"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginRight="15.5dp"
+                    android:src="@drawable/ic_icon_setting" />
+
+                <ImageView
+                    android:id="@+id/iv_mine_user_head"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="63.5dp"
+                    android:src="@mipmap/head_un_login" />
+
+                <TextView
+                    android:id="@+id/tv_mine_login_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_toRightOf="@+id/iv_mine_user_head"
+                    android:text="@string/login_immediately"
+                    android:textColor="@color/app_color_white"
+                    android:textSize="17sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="345dp"
+                    android:layout_height="47.5dp"
+                    android:layout_below="@+id/iv_mine_user_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/bg_mine_top">
+
+                    <View
+                        android:id="@+id/view_mine_view"
+                        android:layout_width="1dp"
+                        android:layout_height="16dp"
+
+                        android:background="@color/app_color_D8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_mine_collection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="39dp"
+                        android:text="@string/account_to_be_credited"
+                        android:textColor="@color/app_color_F35"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/view_mine_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_mine_collection"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:padding="4dp"
+                        android:layout_marginRight="14.5dp"
+                        android:src="@drawable/ic_icon_collection"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_mine_collection"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_mine_safety"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="41dp"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_icon_safety"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/view_mine_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tv_mine_safety"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/account_security"
+                        android:textColor="@color/app_color_F35"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/iv_mine_safety"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="26dp"
+                    android:gravity="center"
+                    android:text="@string/mine"
+                    android:textColor="@color/app_color_333"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mine_rc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-15dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

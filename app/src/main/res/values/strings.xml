@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">FreepayKotlin</string>
 
+    <string name="main_activity_title">官方活动</string>
+    <string name="main_punch_card">去打卡</string>
+    <string name="main_punch_number">2w人+ 正在打卡</string>
+    <string name="main_punch_money">原价 289元</string>
+    <string name="main_punch_content">旅游一卡通 6000多景点免费畅游</string>
+
+
     <string name="my_activities">我的活动</string>
     <string name="view_more">查看更多</string>
     <string name="examine">查看</string>

@@ -1,16 +1,18 @@
 package com.junxin.freepaykotlin.fragment
 
-import android.net.Network
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.gson.Gson
+import com.junxin.freepaykotlin.MainActivity
 import com.junxin.freepaykotlin.R
+import com.junxin.freepaykotlin.adapter.HomeAdapter
 import com.junxin.freepaykotlin.adapter.MyBannerAdapter
 import com.junxin.freepaykotlin.api.NetWork
 import com.junxin.freepaykotlin.api.callback.ApiErr
 import com.junxin.freepaykotlin.api.callback.ApiSuccess
 import com.junxin.freepaykotlin.bean.BannerBean
+import com.junxin.freepaykotlin.bean.HomeTaskBean
 import com.junxin.freepaykotlin.bean.MineTaskBean
 import com.junxin.freepaykotlin.bean.TaskCommonBean
 import com.junxin.freepaykotlin.utils.ToastUtil
@@ -23,7 +25,9 @@ import kotlin.math.abs
 class HomeFragment : BaseFragment() {
 
     var listData = mutableListOf<TaskCommonBean>()
-    var usUserTak = false
+    var isUserTak = false
+    var currentPage = 1;
+    var homeAdapter: HomeAdapter? =null
     override fun getLayout(): Int = R.layout.fragment_home
 
     override fun init() {
@@ -110,7 +114,7 @@ class HomeFragment : BaseFragment() {
 
     fun initUserTask() {
         listData.clear()
-        usUserTak = false
+        isUserTak = false
         NetWork.getInstance()?.getUserList(object : ApiSuccess {
             override fun onResponse(call: Call<ResponseBody>?, json: String?) {
                 var mineTaskBean = Gson().fromJson(json, MineTaskBean::class.java)
@@ -176,14 +180,43 @@ class HomeFragment : BaseFragment() {
     }
 
     fun initHomeRv(){
-        NetWork.getInstance()?.getHomeList("${1}",object : ApiSuccess{
+        NetWork.getInstance()?.getHomeList("${currentPage}",object : ApiSuccess{
             override fun onResponse(call: Call<ResponseBody>?, json: String?) {
-                TODO("Not yet implemented")
+                var homeTaskBean = Gson().fromJson(json,HomeTaskBean::class.java)
+                if(homeTaskBean.code != 0){
+                    ToastUtil.showShortToastCenter(homeTaskBean.msg)
+                    return
+                }
+                var taskCommonBean = TaskCommonBean()
+                taskCommonBean.type = 1
+                listData.add(listData.size,taskCommonBean)
+                homeTaskBean.data?.data?.let { listData.addAll(it) }
+
+                if(homeAdapter == null){
+                    homeAdapter = activity?.let { HomeAdapter(it,listData,isUserTak) }
+                    home_rv.adapter = homeAdapter
+                }else{
+                    homeAdapter?.setData(listData,isUserTak)
+                }
+                homeAdapter?.setOnItemClick(object : HomeAdapter.ItemClick{
+                    override fun onClick(position: Int, appId: String?) {
+
+
+                    }
+
+                    override fun onSkip() {
+                        (activity as MainActivity).changeFragment(2)
+
+                    }
+
+                })
+
+
             }
 
         },object : ApiErr{
             override fun onFailure(call: Call<ResponseBody>?, t: Throwable) {
-                TODO("Not yet implemented")
+                ToastUtil.showShortToastCenter(t.toString())
             }
 
         })

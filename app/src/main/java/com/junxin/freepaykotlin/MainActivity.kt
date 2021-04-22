@@ -3,6 +3,7 @@ package com.junxin.freepaykotlin
 import android.Manifest
 import androidx.fragment.app.Fragment
 import com.junxin.freepaykotlin.adapter.ViewPagerAdapter
+import com.junxin.freepaykotlin.bean.LoginSuccessBean
 import com.junxin.freepaykotlin.fragment.HomeFragment
 import com.tbruyelle.rxpermissions3.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
@@ -58,7 +59,7 @@ class MainActivity : BaseActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun EbStatus() {
+    fun EbStatus(bean :LoginSuccessBean) {
         view_pager.currentItem = 2;
     }
 
