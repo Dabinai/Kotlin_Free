@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:background="@mipmap/shadow"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/daily_item_body_bg"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/daily_item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打卡0元购:iReader 掌阅 Face Note F1 电子书阅读 智能手…"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/app_color_black"
+                    android:textSize="17sp"
+                    android:layout_alignParentTop="true"/>
+
+                <TextView
+                    android:id="@+id/daily_item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/daily_item_title"
+                    android:text="原价 2289元"
+                    android:textColor="@color/app_color_020"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/daily_item_icon"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:scaleType="centerCrop"
+                android:background="@color/app_color_8CD"/>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/daily_item_line2_hour_ti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时薪评估："
+                android:textColor="@color/app_color_999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_item_line2_hour_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9.9元/时"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/daily_item_line2_hour_ti"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_item_line2_difficulty_tit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开车难度："
+                android:textColor="@color/app_color_999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/daily_item_line2_difficulty_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_item_line2_difficulty_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="18dp"
+                android:text="5.0"
+                android:textColor="@color/app_color_a3f"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/daily_item_line2_time_tit"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_item_line2_time_tit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9月29日丨"
+                android:textColor="@color/app_color_999"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/daily_item_line2_now"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_item_line2_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="进行中"
+                android:textColor="@color/app_color_049"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -37,7 +37,8 @@ class HomeFragment : BaseFragment() {
         home_rv.setItemViewCacheSize(8)
 
         initRefresh()
-
+        initBanner()
+        initUserTask()
     }
 
     private fun initRefresh() {
@@ -45,12 +46,18 @@ class HomeFragment : BaseFragment() {
         home_smart.setEnableLoadMore(false)
         home_smart.setOnRefreshListener {
             it.finishRefresh(1000)
+            initUserTask()
+        }
+        home_smart.setOnLoadMoreListener{
+            it.finishLoadMore(1000)
+            currentPage++
+            initHomeRv()
         }
 
 
     }
 
-    lateinit var state: CollapsingToolbarLayoutState
+     var state: CollapsingToolbarLayoutState = CollapsingToolbarLayoutState.EXPANDED
 
     enum class CollapsingToolbarLayoutState {
         EXPANDED, COLLAPSED, INTERNEDIATE

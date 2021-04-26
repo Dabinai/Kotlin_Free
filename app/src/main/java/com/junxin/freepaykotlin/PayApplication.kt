@@ -1,6 +1,7 @@
 package com.junxin.freepaykotlin
 
 import android.app.Application
+import com.junxin.freepaykotlin.utils.SPUtil
 
 class PayApplication : Application() {
     companion object{
@@ -11,5 +12,6 @@ class PayApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        SPUtil.ini(this)
     }
 }

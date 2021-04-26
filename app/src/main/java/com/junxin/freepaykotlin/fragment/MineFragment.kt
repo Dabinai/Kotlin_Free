@@ -80,7 +80,7 @@ class MineFragment : BaseFragment(), View.OnClickListener {
         EventBus.getDefault().unregister(this)
     }
 
-    lateinit var state: CollapsingToolbarLayoutState
+     var state: CollapsingToolbarLayoutState = CollapsingToolbarLayoutState.EXPANDED
 
     enum class CollapsingToolbarLayoutState {
         EXPANDED, COLLAPSED, INTERNEDIATE

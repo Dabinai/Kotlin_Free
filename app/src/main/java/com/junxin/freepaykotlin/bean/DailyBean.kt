@@ -26,7 +26,7 @@ class DailyBean {
         var per_page = 0
         var current_page = 0
         var last_page = 0
-        var data: List<DisDataBean>? =
+        var data: MutableList<DisDataBean>? =
             null
 
 

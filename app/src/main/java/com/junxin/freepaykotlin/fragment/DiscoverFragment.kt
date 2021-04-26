@@ -35,7 +35,8 @@ class DiscoverFragment :BaseFragment(){
 
     private fun initFragments(){
         for (index in 0..4){
-
+            var dailyFragment = DailyFragment.newInstance(index -1)
+            fragments.add(dailyFragment)
         }
     }
 

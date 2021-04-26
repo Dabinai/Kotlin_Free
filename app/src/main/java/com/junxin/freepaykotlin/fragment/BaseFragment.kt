@@ -13,8 +13,13 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var root = inflater.inflate(getLayout(), container, false)
-        init()
         return root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        init()
+
     }
 
     abstract fun getLayout(): Int

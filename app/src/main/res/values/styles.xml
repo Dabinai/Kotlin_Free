@@ -1,0 +1,83 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--MainActivity_theme-->
+    <style name="Main_Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+        <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">true</item>
+
+    </style>
+    <style name="ZhuDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!--<item name="android:windowFrame">@null</item>-->
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="SplashActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowFullscreen">true</item>
+<!--        <item name="android:windowBackground">@drawable/bg_splash</item>-->
+    </style>
+
+    <!--微信WXEntryActivity.java白色闪屏-->
+    <style name="Transparent">
+        <item name="android:windowBackground">#50000000</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+
+    <!--透明activity的style-->
+    <style name="transparent_activity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+
+    <style name="v_cursor">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="v_code_tv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_border_bottom_gold</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+
+    <style name="Theme.Splash" parent="Theme.Light">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Light" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@color/app_color_white</item>
+    </style>
+</resources>

@@ -123,5 +123,5 @@ dependencies {
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
 
     //穿山甲广告
-    implementation(name: 'open_ad_sdk', ext: 'aar');
+//    implementation(name: 'open_ad_sdk', ext: 'aar');
 }
